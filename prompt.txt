@@ -1,0 +1,94 @@
+================================================================================
+MINI PROJECT - 2D Graphics Editor in C
+Tool Used: Claude AI (claude.ai)
+Student: Sahana M
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 1:
+--------------------------------------------------------------------------------
+Guide me for my assignment:
+
+Requirements:
+- Create a repository in GitHub.
+- Submit the link to the GitHub repository in Moodle.
+- Daily push to GitHub is mandatory.
+
+Problem Statement: Design and implement a menu-driven 2D Graphics Editor in C
+using a 2D character array as the drawing canvas. The canvas should initially
+be filled with the character '_' (underscore), and graphical objects should be
+drawn using the character '*' (asterisk).
+
+1. Write functions to draw a circle, rectangle, line, and triangle.
+2. You should be able to add objects to the picture, delete objects from the
+   picture, and modify objects in the picture.
+3. Use a 2D array of characters to store the picture.
+4. Write a function to display the picture.
+
+--------------------------------------------------------------------------------
+RESPONSE 1:
+--------------------------------------------------------------------------------
+Claude provided a step-by-step guide covering two parts:
+
+PART 1 - GitHub Setup:
+- Create a GitHub account at github.com
+- Create a new public repository named '2d-graphics-editor'
+- Install Git from git-scm.com
+- Configure Git with GitHub username and email using git config commands
+- Clone the repository using git clone
+- Explained the daily push routine: git add, git commit, git push
+
+PART 2 - C Program Implementation:
+Claude generated a complete graphics_editor.c program with the following
+design:
+
+Canvas:
+- Size: 25 rows x 60 columns character array
+- Background fill character: '_' (underscore)
+- Drawing character: '*' (asterisk)
+
+Data Structures:
+- Object struct storing type, active flag, and coordinates
+- Supports up to 50 objects
+- Object types: Circle (1), Rectangle (2), Line (3), Triangle (4)
+
+Drawing Algorithms:
+- Circle: Midpoint circle algorithm (8-point symmetry)
+- Line: Bresenham's line algorithm
+- Rectangle: Four lines forming a hollow box
+- Triangle: Three connected lines between any three vertices
+
+Functions implemented:
+- init_canvas()       : Fills canvas with '_'
+- display_canvas()    : Prints canvas with row/column rulers
+- set_pixel()         : Bounds-checked pixel placement
+- draw_line_pixels()  : Bresenham's line drawing
+- draw_circle_pixels(): Midpoint circle drawing
+- draw_rect_pixels()  : Rectangle using four lines
+- draw_triangle_pixels(): Triangle using three lines
+- draw_object()       : Dispatches to correct draw function
+- redraw_all()        : Rebuilds canvas from all active objects
+- add_circle()        : Prompts user and adds circle
+- add_rectangle()     : Prompts user and adds rectangle
+- add_line()          : Prompts user and adds line
+- add_triangle()      : Prompts user and adds triangle
+- delete_object()     : Marks object inactive, redraws canvas
+- modify_object()     : Updates object coordinates, redraws canvas
+- list_objects()      : Displays all objects with coordinates
+- clear_all()         : Removes all objects, resets canvas
+- main_menu()         : Menu-driven interface loop
+
+Menu Options:
+1. Display Canvas
+2. Add Object (sub-menu: Circle / Rectangle / Line / Triangle)
+3. Delete Object
+4. Modify Object
+5. List Objects
+6. Clear All
+0. Exit
+
+Compilation command: gcc -o graphics_editor graphics_editor.c -lm
+
+================================================================================
+END OF PROMPTS
+================================================================================
